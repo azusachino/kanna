@@ -1,0 +1,21 @@
+name: kanna-application
+
+services:
+  kanna:
+    image: ghcr.io/kanna-ai/kanna:latest
+    container_name: kanna
+    ports:
+      - "8080:8080"
+    environment:
+      - KANNA_API_KEY=your_api_key_here
+      - KANNA_DB_URL=sqlite:///kanna.db
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  db:
+    image: sqlite:latest
+    container_name: kanna_db
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
