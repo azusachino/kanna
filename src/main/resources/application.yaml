@@ -1,0 +1,11 @@
+server:
+  port: 8090
+
+spring:
+  docker:
+    compose:
+      enabled: false
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:oyatsu;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    
